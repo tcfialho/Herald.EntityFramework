@@ -24,7 +24,6 @@ namespace Herald.EntityFramework.Tests
             services.AddDbContext<EntityContext>(options => 
             {
                 options.UseLazyLoadingProxies();
-                options.UseChangeTrackingProxies();
                 options.UseInMemoryDatabase("RepositoryTests");
             });
             services.AddHeraldEntityFramework<EntityContext>();
