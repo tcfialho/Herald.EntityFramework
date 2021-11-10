@@ -14,7 +14,7 @@ namespace Herald.EntityFramework.Tests
             Name = name;
         }
 
-        public Guid Id { get; protected set; }
-        public string Name { get; set; }
+        public virtual Guid Id { get; protected set; }
+        public virtual string Name { get; set; }
     }
 }
