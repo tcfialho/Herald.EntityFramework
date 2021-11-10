@@ -21,7 +21,12 @@ namespace Herald.EntityFramework.Tests
         public RepositoryTests()
         {
             var services = new ServiceCollection();
-            services.AddDbContext<EntityContext>(options => options.UseInMemoryDatabase("RepositoryTests"));
+            services.AddDbContext<EntityContext>(options => 
+            {
+                options.UseLazyLoadingProxies();
+                options.UseChangeTrackingProxies();
+                options.UseInMemoryDatabase("RepositoryTests");
+            });
             services.AddHeraldEntityFramework<EntityContext>();
             services.AddTransient<IStubRepository, UserRepository>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
