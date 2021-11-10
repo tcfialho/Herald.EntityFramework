@@ -10,13 +10,16 @@ namespace Herald.EntityFramework.Repositories
     {
         private readonly DbContext _context;
         private readonly DbSet<TEntity> _dbSet;
-        protected IQueryable<TEntity> _query { get; }
+        protected abstract IQueryable<TEntity> _query
+        {
+            get; set;
+        }
 
         public Repository(DbContext context)
         {
             _context = context;
             _dbSet = _context.Set<TEntity>();
-            _query = _dbSet.AsNoTrackingWithIdentityResolution();
+            _query = _dbSet;
         }
 
         public virtual async Task<TEntity> GetById(object id)
