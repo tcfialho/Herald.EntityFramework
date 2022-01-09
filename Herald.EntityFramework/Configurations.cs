@@ -3,7 +3,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace WebApi.Infrastructure
+namespace Herald.EntityFramework
 {
     public static class Configurations
     {

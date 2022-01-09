@@ -7,8 +7,6 @@ using Herald.EntityFramework.Persistance;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-using WebApi.Infrastructure;
-
 using Xunit;
 
 namespace Herald.EntityFramework.Tests
