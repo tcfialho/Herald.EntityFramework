@@ -32,8 +32,8 @@ namespace Herald.EntityFramework.Repositories
             await _dbSet.AddAsync(entity);
         }
 
-        public virtual void Update(TEntity entity)
-        {
+        public virtual async Task Update(TEntity entity)
+        {            
             var entry = _context.Entry(entity);
 
             if (entry.State == EntityState.Detached)
@@ -42,9 +42,11 @@ namespace Herald.EntityFramework.Repositories
             }
 
             entry.State = EntityState.Modified;
+
+            await Task.CompletedTask;
         }
 
-        public virtual void Delete(TEntity entity)
+        public virtual async Task Delete(TEntity entity)
         {
             var entry = _context.Entry(entity);
 
@@ -54,6 +56,8 @@ namespace Herald.EntityFramework.Repositories
             }
 
             _dbSet.Remove(entity);
+
+            await Task.CompletedTask;
         }
 
         public virtual async Task<IList<TEntity>> GetAll()
